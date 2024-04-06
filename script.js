@@ -20,7 +20,12 @@ function createPassword(){
     passwordBox.value = password;
 }
 
-function copyPassword(){
+
+function copyPassword() {
     passwordBox.select();
-    navigator.clipboard.writeText(passwordBox.value);    
-}
+    navigator.clipboard.writeText(password.value).then(function() {
+      alert("Text copied to clipboard");
+    }, function(err) {
+      console.error('Could not copy text: ', err);
+    });
+  }
